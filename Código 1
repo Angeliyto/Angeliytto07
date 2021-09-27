@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <script src="karma.js"></script>
-    <script src="karma2.js"></script>
-</html>
+
 var x = 0;
 for (var x = 0; x<=18; x++){
     var total = x*.5;

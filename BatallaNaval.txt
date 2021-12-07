@@ -1,0 +1,119 @@
+<script>
+    alert("Batalla Naval");
+    var jugador1 = prompt("Nombre del jugador 1: ");
+    var jugador2 = prompt("Nombre del jugador 2: ");
+    let Tablero1 = createGrid(5);
+    let Tablero2 = createGrid(5);
+    let barcosJugador1 = 3;
+    let barcosJugador2 = 3;
+    let cordenadaEnemiga = {};
+    
+    console.log("Tablero de " + jugador2);
+    printGrid(Tablero2, true);
+    console.log("")
+    console.log("Tablero de " + jugador1);
+    printGrid(Tablero1);
+    
+    for (let i = 1; i < 4; i++) {
+        let x = prompt("Ingrese la coordenada ' f ' para la posición del barco " + i);
+        let y = prompt("Ingrese la coordenada ' c  ' para la posición del barco  " + i);
+        placeCharacter(x, y, "O", Tablero1);
+        placeRandomCharacter("O", Tablero2, 5);
+        drawBreak();
+        printGrid(Tablero2, true);
+        printGrid(Tablero1);
+    }
+    while (barcosJugador2 > 0 && barcosJugador1 > 0) {
+        let x = prompt("Ingrese la coordenada ' f ' para su ataque");
+        let y = prompt("Ingrese la coordenada ' c  ' para su ataque");
+    
+        if (attack(x, y, Tablero2)) {
+            barcosJugador2--;
+        }
+    
+        x = getRandomInt(5);
+        y = getRandomInt(5);
+        if (barcosJugador2 > 0 && attack(x, y, Tablero1)) {
+            barcosJugador1--;
+        }
+    
+        drawBreak();
+        console.log("Tablero de " + jugador2);
+        printGrid(Tablero2, true);
+        console.log("")
+        console.log("Tablero de " + jugador1);
+        printGrid(Tablero1);
+    }
+    
+    if (barcosJugador1 < barcosJugador2) {
+        console.log("!Perdiste " + jugador1 + "!");
+    } else {
+        console.log("!Ganaste " + jugador1 + "!");
+    }
+    
+    function createGrid(size) {
+        let cordenadas = [];
+        for (let i = 0; i < size; i++) {
+            cordenadas[i] = [];
+            for (let j = 0; j < size; j++) {
+                cordenadas[i][j] = "-";
+            }
+        }
+        return cordenadas;
+    }
+    function printGrid(cordenadas, isEnemy = false) {
+        const headers = createHeaders(cordenadas.length);
+        console.log(headers);
+        for (let i = 0; i < cordenadas.length; i++) {
+            let rowStr = i + " ";
+            for (let cell of cordenadas[i]) {
+                if (isEnemy && cell == "O") {
+                    rowStr += "- ";
+                } else {
+                    rowStr += cell + " ";
+                }
+            }
+            console.log(rowStr);
+        }
+    
+    }
+    function createHeaders(size) {
+        let result = "  ";
+        for (let i = 0; i < size; i++) {
+            result += i + " ";
+        }
+        return result;
+    }
+    function placeCharacter(x, y, c, cordenadas) {
+        cordenadas[y][x] = c;
+    }
+    function placeRandomCharacter(c, cordenadas, max) {
+        let didPlace = false;
+        while (!didPlace) {
+            let x = getRandomInt(max);
+            let y = getRandomInt(max);
+            if (!cordenadaEnemiga[`${x}-${y}`]) {
+                placeCharacter(x, y, c, cordenadas);
+                didPlace = true;
+                cordenadaEnemiga[`${x}-${y}`] = true;
+            }
+        }
+    }
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+    function attack(x, y, cordenadas) {
+        if (cordenadas[y][x] == "O") {
+            cordenadas[y][x] = "!";
+            return true;
+        } else if (cordenadas[y][x] == "-") {
+            cordenadas[y][x] = "x";
+            return false;
+        } else {
+            return false;
+        }
+    }
+    function drawBreak() {
+        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    }
+    </script>

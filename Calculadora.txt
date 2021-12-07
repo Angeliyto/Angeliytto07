@@ -1,0 +1,63 @@
+
+using System; 
+class numba_nan
+{
+public static void Main (string[]args)
+{
+int num = 0:
+int num2 = 0; 
+int resultado = 0;
+
+Console.WriteLine ("Que operacion deseas realizar?");
+Console.WriteLine(" ");
+Console.WriteLine("Suma"); 
+Console.WriteLine("Resta");
+Console.WriteLine("Multiplicación");
+Console.WriteLine("División");
+Console.WriteLine(" ");
+string eleccion;
+eleccion = Console.ReadLine(); 
+switch (eleccion){
+case "Suma":
+Console.WriteLine("A continuacion Ingresara sus 2 numeros:");
+Console.WriteLine("Primer valor: "); 
+num1 = int.Parse (Console.Readline());
+Console.WriteLine("Segundo valor"); 
+num2 = int.Parse (Console.Readline());
+resultado = numl + num2;
+Console.WriteLine("El resultado es:" + resultado);
+break;
+case "Resta":
+Console.WriteLine("A continuacion Ingresara sus 2 numeros:");
+Console.WriteLine("Primer valor: ");    
+num1 = int.Parse (Console.Readline());
+Console.WriteLine("Segundo valor");
+num2 = int.Parse (Console.Readline());
+resultado = num1 - num2;
+Console.WriteLine("El resultado es:" + resultado);
+break;
+case "Multiplicación":
+Console.WriteLine("A continuacion Ingresara sus 2 numeros:");
+Console.WriteLine("Primer valor: ");
+num1 = int.Parse (Console.Readline());
+Console.WriteLine("Segundo valor");
+num2 = int.Parse (Console.Readline());
+resultado = num1 * num2;
+Console.WriteLine("El resultado es:" + resultado);
+break;
+case "División":
+Console.WriteLine("A continuacion Ingresara sus 2 numeros:");
+Console.WriteLine("Primer valor: ");
+num1 = int.Parse (Console.Readline());
+Console.WriteLine("Segundo valor");
+num2 = int.Parse (Console.Readline());
+resultado = num1 / num2;
+Console.WriteLine("El resultado es:" + resultado);
+break;
+default:
+Console.WriteLine("No selecciono ninguna opcion");
+break;
+}
+}
+}
+

@@ -1,0 +1,50 @@
+<script>
+function registrar (){
+    cantidad = [];
+    meses = 1;
+    mont = 0;
+}
+while(mont == 0) {
+    registrar = prompt("Que cantidad desea prestar?\n"
+    + "1 Menu de opciones\n"
+    + "2 prestamo\n"
+    + "3 meses a pagar\n"
+    );
+}
+switch(registrar){
+    case "1" :
+        ("Menu de opciones:");
+        break;
+    case "2" :
+        ("prestamo");
+        let registro = registrar ("cantidad");
+        if (registro = null) {
+            console.log(regis);
+        }else {
+            console.log("cantidad incompleta");
+        }
+        break;
+    case "3" :
+        ("meses a pagar");
+        break; 
+    default:
+        console.log("entrada no valida");
+        break;
+}while(operacion = 0);
+function pedirDatos(texto) {
+    let cantDatos = parentInt(prompt("Menu de opciones"));
+
+    for(let i = 0; i < pedirDatos; i++) { 
+
+        let registro = {};
+        registro["cantidad"] = prompt("Ingrese el monto a prestar" + (i + 1));
+    }
+    return regirtro;
+}
+function prestamo(cantidad,meses){
+    for(let i = 0; i < cantidad,meses.length; i++) {
+        registro += cantidad,meses[i]["cant"];
+    }
+    return (registro / cantidad,genero.length);
+}
+</script>
